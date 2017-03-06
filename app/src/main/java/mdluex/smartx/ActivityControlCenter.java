@@ -1,5 +1,8 @@
 package mdluex.smartx;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +10,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Set;
 
 
 public class ActivityControlCenter extends AppCompatActivity {
@@ -17,11 +23,39 @@ public class ActivityControlCenter extends AppCompatActivity {
     private int room4_str = 1;
     private int room5_str = 1;
     private int room6_str = 1;
+    String deviceName = "HC-05";
+    BluetoothDevice result = null;
+    BluetoothAdapter bluetoothAdapter=BluetoothAdapter.getDefaultAdapter();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control_center);
+
+        if (bluetoothAdapter == null) {
+            Toast.makeText(getApplicationContext(),"Device doesnt Support Bluetooth",Toast.LENGTH_SHORT).show();
+        }
+        if(!bluetoothAdapter.isEnabled())
+        {
+            Intent enableAdapter = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableAdapter, 0);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        Set<BluetoothDevice> devices = bluetoothAdapter.getBondedDevices();
+        if (devices != null) {
+            for (BluetoothDevice device : devices) {
+                if (deviceName.equals(device.getName())) {
+                    result = device;
+                    break;
+                }
+            }
+        }
 
         final RelativeLayout room1_btn = (RelativeLayout) this.findViewById(R.id.room1_btn);
         final TextView room1_st = (TextView) this.findViewById(R.id.room1_st);
