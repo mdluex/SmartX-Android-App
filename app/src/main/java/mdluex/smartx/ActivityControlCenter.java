@@ -2,6 +2,7 @@ package mdluex.smartx;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Set;
+import java.util.UUID;
 
 
 public class ActivityControlCenter extends AppCompatActivity {
@@ -26,6 +31,10 @@ public class ActivityControlCenter extends AppCompatActivity {
     String deviceName = "HC-05";
     BluetoothDevice result = null;
     BluetoothAdapter bluetoothAdapter=BluetoothAdapter.getDefaultAdapter();
+    private BluetoothSocket socket;
+    private OutputStream outputStream;
+    private InputStream inputStream;
+    private final UUID PORT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");//Serial Port Service ID
 
 
     @Override
@@ -51,7 +60,32 @@ public class ActivityControlCenter extends AppCompatActivity {
         if (devices != null) {
             for (BluetoothDevice device : devices) {
                 if (deviceName.equals(device.getName())) {
+                    Toast.makeText(getApplicationContext(),"SamrtX is available ",Toast.LENGTH_SHORT).show();
                     result = device;
+                    boolean connected=true;
+                    try {
+                        socket = result.createRfcommSocketToServiceRecord(PORT_UUID);
+                        socket.connect();
+                        Toast.makeText(getApplicationContext(),"Connected",Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        connected=false;
+                        Toast.makeText(getApplicationContext(),"SamrtX is not available ",Toast.LENGTH_SHORT).show();
+                    }
+                    if(connected)
+                    {
+                        try {
+                            outputStream=socket.getOutputStream();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            inputStream=socket.getInputStream();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
                     break;
                 }
             }
@@ -65,12 +99,34 @@ public class ActivityControlCenter extends AppCompatActivity {
             public void onClick(View v) {
                 if (room1_str == 0){
                     room1_str = 1;
+                    if (socket!=null)
+                    {
+                        try
+                        {
+                            socket.getOutputStream().write("a".toString().getBytes());
+                        }
+                        catch (IOException e)
+                        {
+                            Toast.makeText(getApplicationContext(),"Error ",Toast.LENGTH_SHORT).show();
+                        }
+                    }
                     room1_btn.setBackgroundResource(R.drawable.btn_grid_nor);
                     room1_st.setText("ON");
                     room1_img.setImageResource(R.drawable.lamp_on);
                 }
                 else {
                     room1_str = 0;
+                    if (socket!=null)
+                    {
+                        try
+                        {
+                            socket.getOutputStream().write("b".toString().getBytes());
+                        }
+                        catch (IOException e)
+                        {
+                            Toast.makeText(getApplicationContext(),"Error ",Toast.LENGTH_SHORT).show();
+                        }
+                    }
                     room1_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room1_st.setText("OFF");
                     room1_img.setImageResource(R.drawable.lamp_off);
