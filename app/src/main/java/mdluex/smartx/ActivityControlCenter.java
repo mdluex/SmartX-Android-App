@@ -28,7 +28,7 @@ public class ActivityControlCenter extends AppCompatActivity {
     private int room4_str = 1;
     private int room5_str = 1;
     private int room6_str = 1;
-    String deviceName = "HC-05";
+    String deviceAddress = "20:16:07:25:13:60";
     BluetoothDevice result = null;
     BluetoothAdapter bluetoothAdapter=BluetoothAdapter.getDefaultAdapter();
     private BluetoothSocket socket;
@@ -59,7 +59,7 @@ public class ActivityControlCenter extends AppCompatActivity {
         Set<BluetoothDevice> devices = bluetoothAdapter.getBondedDevices();
         if (devices != null) {
             for (BluetoothDevice device : devices) {
-                if (deviceName.equals(device.getName())) {
+                if (deviceAddress.equals(device.getAddress())) {
                     Toast.makeText(getApplicationContext(),"SamrtX is available ",Toast.LENGTH_SHORT).show();
                     result = device;
                     boolean connected=true;
@@ -142,12 +142,34 @@ public class ActivityControlCenter extends AppCompatActivity {
             public void onClick(View v) {
                 if (room2_str == 0){
                     room2_str = 1;
+                    if (socket!=null)
+                    {
+                        try
+                        {
+                            socket.getOutputStream().write("on".toString().getBytes());
+                        }
+                        catch (IOException e)
+                        {
+                            Toast.makeText(getApplicationContext(),"Error ",Toast.LENGTH_SHORT).show();
+                        }
+                    }
                     room2_btn.setBackgroundResource(R.drawable.btn_grid_nor);
                     room2_st.setText("ON");
                     room2_img.setImageResource(R.drawable.lamp_on);
                 }
                 else {
                     room2_str = 0;
+                    if (socket!=null)
+                    {
+                        try
+                        {
+                            socket.getOutputStream().write("off".toString().getBytes());
+                        }
+                        catch (IOException e)
+                        {
+                            Toast.makeText(getApplicationContext(),"Error ",Toast.LENGTH_SHORT).show();
+                        }
+                    }
                     room2_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room2_st.setText("OFF");
                     room2_img.setImageResource(R.drawable.lamp_off);
