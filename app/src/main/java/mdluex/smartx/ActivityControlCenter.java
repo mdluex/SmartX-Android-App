@@ -1,23 +1,18 @@
 package mdluex.smartx;
 
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Set;
-import java.util.UUID;
+
+
 
 
 public class ActivityControlCenter extends AppCompatActivity {
@@ -28,68 +23,13 @@ public class ActivityControlCenter extends AppCompatActivity {
     private int room4_str = 1;
     private int room5_str = 1;
     private int room6_str = 1;
-    String deviceAddress = "20:16:07:25:13:60";
-    BluetoothDevice result = null;
-    BluetoothAdapter bluetoothAdapter=BluetoothAdapter.getDefaultAdapter();
-    private BluetoothSocket socket;
-    private OutputStream outputStream;
-    private InputStream inputStream;
-    private final UUID PORT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");//Serial Port Service ID
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control_center);
-
-        if (bluetoothAdapter == null) {
-            Toast.makeText(getApplicationContext(),"Device doesnt Support Bluetooth",Toast.LENGTH_SHORT).show();
-        }
-        if(!bluetoothAdapter.isEnabled())
-        {
-            Intent enableAdapter = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableAdapter, 0);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-        Set<BluetoothDevice> devices = bluetoothAdapter.getBondedDevices();
-        if (devices != null) {
-            for (BluetoothDevice device : devices) {
-                if (deviceAddress.equals(device.getAddress())) {
-                    Toast.makeText(getApplicationContext(),"SamrtX is available ",Toast.LENGTH_SHORT).show();
-                    result = device;
-                    boolean connected=true;
-                    try {
-                        socket = result.createRfcommSocketToServiceRecord(PORT_UUID);
-                        socket.connect();
-                        Toast.makeText(getApplicationContext(),"Connected",Toast.LENGTH_SHORT).show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        connected=false;
-                        Toast.makeText(getApplicationContext(),"SamrtX is not available ",Toast.LENGTH_SHORT).show();
-                    }
-                    if(connected)
-                    {
-                        try {
-                            outputStream=socket.getOutputStream();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            inputStream=socket.getInputStream();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                    break;
-                }
-            }
-        }
 
         final RelativeLayout room1_btn = (RelativeLayout) this.findViewById(R.id.room1_btn);
         final TextView room1_st = (TextView) this.findViewById(R.id.room1_st);
@@ -99,34 +39,14 @@ public class ActivityControlCenter extends AppCompatActivity {
             public void onClick(View v) {
                 if (room1_str == 0){
                     room1_str = 1;
-                    if (socket!=null)
-                    {
-                        try
-                        {
-                            socket.getOutputStream().write("a".toString().getBytes());
-                        }
-                        catch (IOException e)
-                        {
-                            Toast.makeText(getApplicationContext(),"Error ",Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                    SplashScreen.room1ON();
                     room1_btn.setBackgroundResource(R.drawable.btn_grid_nor);
                     room1_st.setText("ON");
                     room1_img.setImageResource(R.drawable.lamp_on);
                 }
                 else {
                     room1_str = 0;
-                    if (socket!=null)
-                    {
-                        try
-                        {
-                            socket.getOutputStream().write("b".toString().getBytes());
-                        }
-                        catch (IOException e)
-                        {
-                            Toast.makeText(getApplicationContext(),"Error ",Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                    SplashScreen.room1OFF();
                     room1_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room1_st.setText("OFF");
                     room1_img.setImageResource(R.drawable.lamp_off);
@@ -142,34 +62,12 @@ public class ActivityControlCenter extends AppCompatActivity {
             public void onClick(View v) {
                 if (room2_str == 0){
                     room2_str = 1;
-                    if (socket!=null)
-                    {
-                        try
-                        {
-                            socket.getOutputStream().write("on".toString().getBytes());
-                        }
-                        catch (IOException e)
-                        {
-                            Toast.makeText(getApplicationContext(),"Error ",Toast.LENGTH_SHORT).show();
-                        }
-                    }
                     room2_btn.setBackgroundResource(R.drawable.btn_grid_nor);
                     room2_st.setText("ON");
                     room2_img.setImageResource(R.drawable.lamp_on);
                 }
                 else {
                     room2_str = 0;
-                    if (socket!=null)
-                    {
-                        try
-                        {
-                            socket.getOutputStream().write("off".toString().getBytes());
-                        }
-                        catch (IOException e)
-                        {
-                            Toast.makeText(getApplicationContext(),"Error ",Toast.LENGTH_SHORT).show();
-                        }
-                    }
                     room2_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room2_st.setText("OFF");
                     room2_img.setImageResource(R.drawable.lamp_off);
@@ -260,6 +158,13 @@ public class ActivityControlCenter extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
 
