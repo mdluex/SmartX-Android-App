@@ -71,16 +71,16 @@
                         android:fontFamily="sans-serif" />
 
                     <TextView
-                        android:text="Room 1"
+                        android:id="@+id/room1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room1"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:text="Office"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -117,16 +117,16 @@
                         android:fontFamily="sans-serif" />
 
                     <TextView
-                        android:text="Room 2"
+                        android:id="@+id/room2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room2"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:text="Working Room"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -235,16 +235,16 @@
                         android:fontFamily="sans-serif" />
 
                     <TextView
-                        android:text="Room 3"
+                        android:id="@+id/room3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room3"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:text="Waiting Room"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -281,16 +281,16 @@
                         android:fontFamily="sans-serif" />
 
                     <TextView
-                        android:text="Room 4"
+                        android:id="@+id/room4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room4"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:text="Meeting Room"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -322,16 +322,16 @@
                         android:cropToPadding="false" />
 
                     <TextView
-                        android:text="Room 1"
+                        android:id="@+id/room1_mo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room1_mo"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="#ffffff"
-                        android:textSize="12sp"
                         android:layout_above="@+id/ttl_mo"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:text="lane"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:text="Movements: "
@@ -379,16 +379,16 @@
                         android:cropToPadding="false" />
 
                     <TextView
-                        android:text="Ketchen"
+                        android:id="@+id/ket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ket"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="#ffffff"
-                        android:textSize="12sp"
                         android:layout_above="@+id/ttl_smoke"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:text="Kitchen"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:text="Smoke: "
@@ -459,16 +459,16 @@
                         android:fontFamily="sans-serif" />
 
                     <TextView
-                        android:text="Room 5"
+                        android:id="@+id/room5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room5"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:text="Kitchen"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -505,16 +505,16 @@
                         android:fontFamily="sans-serif" />
 
                     <TextView
-                        android:text="Room 6"
+                        android:id="@+id/room6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room6"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:text="Bathroom"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
                 </RelativeLayout>
             </LinearLayout>
 

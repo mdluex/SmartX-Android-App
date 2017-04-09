@@ -96,6 +96,7 @@ public class SplashScreen extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent acc=new Intent(getApplicationContext(),ActivityControlCenter.class);
                         startActivity(acc);
+                        appopn();
                     }
                 });
             }
@@ -104,12 +105,40 @@ public class SplashScreen extends AppCompatActivity {
 
     }
 
+    public static void appopn(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("9".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public static void appcls(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("0".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
         public static void room1ON(){
             if (socket!=null)
             {
                 try
                 {
-                    socket.getOutputStream().write("a".toString().getBytes());
+                    socket.getOutputStream().write("5".toString().getBytes());
                 }
                 catch (IOException e)
                 {
@@ -123,7 +152,7 @@ public class SplashScreen extends AppCompatActivity {
             {
                 try
                 {
-                    socket.getOutputStream().write("b".toString().getBytes());
+                    socket.getOutputStream().write("6".toString().getBytes());
                 }
                 catch (IOException e)
                 {
@@ -132,11 +161,157 @@ public class SplashScreen extends AppCompatActivity {
             }
         }
 
+    public static void room2ON(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("e".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public static void room2OFF(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("r".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public static void room3ON(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("1".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public static void room3OFF(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("2".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public static void room4ON(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("m".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public static void room4OFF(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("t".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public static void room5ON(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("3".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public static void room5OFF(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("4".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public static void room6ON(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("7".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public static void room6OFF(){
+        if (socket!=null)
+        {
+            try
+            {
+                socket.getOutputStream().write("8".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                //Toast.makeText(getApplicationContext(),"Post Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        appcls();
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        appcls();
     }
 }
