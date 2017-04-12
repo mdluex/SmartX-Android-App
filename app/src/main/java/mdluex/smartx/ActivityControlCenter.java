@@ -2,17 +2,19 @@ package mdluex.smartx;
 
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.IOException;
-
-
 
 
 public class ActivityControlCenter extends AppCompatActivity {
@@ -23,8 +25,10 @@ public class ActivityControlCenter extends AppCompatActivity {
     private int room4_str = 0;
     private int room5_str = 0;
     private int room6_str = 0;
-
-
+    public static String read_msg;
+    public static String cc_degText;
+    public boolean smk_stt;
+    public boolean mo_stt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -235,6 +239,90 @@ public class ActivityControlCenter extends AppCompatActivity {
             room6_img.setImageResource(R.drawable.lamp_on);
         }
 
+        /**getWindow().getDecorView().post(new Runnable() {
+            @Override
+            public void run() {
+                new Thread(new Runnable() {
+                    public void run() {
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    while (true) {
+                                        deg_text();
+                                        SystemClock.sleep(1000);
+                                    }
+                                }
+                            });
+                    }
+                }).start();
+            }
+        });*/
+
+        final Handler deg_handler = new Handler(Looper.getMainLooper());
+        deg_handler.post(new Runnable() {
+            public void run() {
+                deg_text();
+                deg_handler.postDelayed(this, 0);
+            }
+        });
+
+        final Handler smk_mo_handler = new Handler(Looper.getMainLooper());
+        smk_mo_handler.post(new Runnable() {
+            public void run() {
+                smk_stt_th();
+                mo_stt_th();
+                smk_mo_handler.postDelayed(this, 0);
+            }
+        });
+
+    }
+    public void deg_text(){
+        cc_degText = read_msg;
+        final TextView deg_cc = (TextView) this.findViewById(R.id.cc_temp_st);
+        if (cc_degText != null & cc_degText.length() > 0 & cc_degText.matches("^[0-9]*$")){
+            deg_cc.setText(cc_degText + "0" + "°");
+        }
+    }
+    public void smk_stt_th(){
+        if (read_msg.matches("s")){
+            smk_stt = false;
+        }
+        else if (read_msg.matches("S")){
+            smk_stt = true;
+        }
+        else {
+            smk_stt = false;
+        }
+        final RelativeLayout ket_sec = (RelativeLayout) this.findViewById(R.id.ket_smoke_sec);
+        final TextView smk_sttText = (TextView) this.findViewById(R.id.ket_smoke_st);
+        if (smk_stt == true){
+            smk_sttText.setText("YES");
+            ket_sec.setBackgroundResource(R.drawable.btn_grid_erg);
+        }
+        else if (smk_stt == false){
+            smk_sttText.setText("NO");
+            ket_sec.setBackgroundResource(R.drawable.btn_grid_off);
+        }
+    }
+    public void mo_stt_th(){
+        if (read_msg.matches("w")){
+            mo_stt = false;
+        }
+        else if (read_msg.matches("W")){
+            mo_stt = true;
+        }
+        else {
+            mo_stt = false;
+        }
+        final RelativeLayout mo_sec = (RelativeLayout) this.findViewById(R.id.room1_mo_sec);
+        final TextView mo_sttText = (TextView) this.findViewById(R.id.room1_mo_st);
+        if (mo_stt == true){
+            mo_sttText.setText("YES");
+            mo_sec.setBackgroundResource(R.drawable.btn_grid_nor);
+        }
+        else if (mo_stt == false){
+            mo_sttText.setText("NO");
+            mo_sec.setBackgroundResource(R.drawable.btn_grid_off);
+        }
     }
     @Override
     public void onBackPressed() {

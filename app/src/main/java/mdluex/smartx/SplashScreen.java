@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,7 @@ public class SplashScreen extends AppCompatActivity {
     public static OutputStream outputStream;
     public static InputStream inputStream;
     public static final UUID PORT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");//Serial Port Service ID
+    public static int serial_msg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +89,23 @@ public class SplashScreen extends AppCompatActivity {
                                 }
                             }
                         }
+
+                        new Thread(new Runnable() {
+                            public void run() {
+                                while (true){
+                                    //read data from serial then convert it from decimal to char
+                                    try {
+                                        serial_msg = Integer.parseInt(new String(String.valueOf(inputStream.read())));
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                    //send converted data to another string in another activity
+                                    ActivityControlCenter.read_msg = String.valueOf((char)serial_msg);
+                                    //SystemClock.sleep(500);
+                                }
+                            }
+                        }).start();
+
                     }
                 }, 1500);
 
