@@ -289,9 +289,9 @@ public class ActivityControlCenter extends AppCompatActivity {
         else if (read_msg.matches("S")){
             smk_stt = true;
         }
-        else {
+        /*else {
             smk_stt = false;
-        }
+        }*/
         final RelativeLayout ket_sec = (RelativeLayout) this.findViewById(R.id.ket_smoke_sec);
         final TextView smk_sttText = (TextView) this.findViewById(R.id.ket_smoke_st);
         if (smk_stt == true){
@@ -310,9 +310,9 @@ public class ActivityControlCenter extends AppCompatActivity {
         else if (read_msg.matches("W")){
             mo_stt = true;
         }
-        else {
+        /*else {
             mo_stt = false;
-        }
+        }*/
         final RelativeLayout mo_sec = (RelativeLayout) this.findViewById(R.id.room1_mo_sec);
         final TextView mo_sttText = (TextView) this.findViewById(R.id.room1_mo_st);
         if (mo_stt == true){
