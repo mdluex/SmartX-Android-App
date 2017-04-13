@@ -100,5 +100,6 @@ public class intro_main extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mReceiver);
+        System.exit(1);
     }
 }

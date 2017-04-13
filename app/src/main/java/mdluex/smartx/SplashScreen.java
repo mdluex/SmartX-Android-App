@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,7 @@ public class SplashScreen extends AppCompatActivity {
     public static InputStream inputStream;
     public static final UUID PORT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");//Serial Port Service ID
     public static int serial_msg;
+    public boolean bt_conn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,61 +53,69 @@ public class SplashScreen extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-
-                        Set<BluetoothDevice> devices = bluetoothAdapter.getBondedDevices();
-                        if (devices != null) {
-                            for (BluetoothDevice device : devices) {
-                                if (deviceAddress.equals(device.getAddress())) {
-                                    Toast.makeText(getApplicationContext(),"SamrtX is available ",Toast.LENGTH_SHORT).show();
-                                    result = device;
-                                    boolean connected=true;
-                                    try {
-                                        socket = result.createRfcommSocketToServiceRecord(PORT_UUID);
-                                        socket.connect();
-                                        Toast.makeText(getApplicationContext(),"Connected",Toast.LENGTH_SHORT).show();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                        connected=false;
-                                        Toast.makeText(getApplicationContext(),"Connection Error",Toast.LENGTH_SHORT).show();
-                                    }
-                                    if(connected)
-                                    {
-                                        conn_ttl.setVisibility(View.VISIBLE);
-                                        srch_ttl.setVisibility(View.INVISIBLE);
-                                        splash_btn.setEnabled(true);
-                                        splash_btn.setBackgroundResource(R.drawable.btn_splash_nor);
-                                        try {
-                                            outputStream=socket.getOutputStream();
-                                        } catch (IOException e) {
-                                            e.printStackTrace();
-                                        }
-                                        try {
-                                            inputStream=socket.getInputStream();
-                                        } catch (IOException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                    break;
-                                }
-                            }
-                        }
-
-                        new Thread(new Runnable() {
+                        final Handler conn_handler = new Handler(Looper.getMainLooper());
+                        conn_handler.post(new Runnable() {
                             public void run() {
-                                while (true){
-                                    //read data from serial then convert it from decimal to char
-                                    try {
-                                        serial_msg = Integer.parseInt(new String(String.valueOf(inputStream.read())));
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
+                                if (bt_conn == false){
+                                    Set<BluetoothDevice> devices = bluetoothAdapter.getBondedDevices();
+                                    if (devices != null) {
+                                        for (BluetoothDevice device : devices) {
+                                            if (deviceAddress.equals(device.getAddress())) {
+                                                //Toast.makeText(getApplicationContext(),"SamrtX is available",Toast.LENGTH_SHORT).show();
+                                                result = device;
+                                                boolean connected=true;
+                                                try {
+                                                    socket = result.createRfcommSocketToServiceRecord(PORT_UUID);
+                                                    socket.connect();
+                                                    //Toast.makeText(getApplicationContext(),"Connected",Toast.LENGTH_SHORT).show();
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                    connected=false;
+                                                    //Toast.makeText(getApplicationContext(),"SamrtX is not available",Toast.LENGTH_SHORT).show();
+                                                }
+                                                if(connected)
+                                                {
+                                                    conn_ttl.setVisibility(View.VISIBLE);
+                                                    srch_ttl.setVisibility(View.INVISIBLE);
+                                                    splash_btn.setEnabled(true);
+                                                    splash_btn.setBackgroundResource(R.drawable.btn_splash_nor);
+                                                    try {
+                                                        outputStream=socket.getOutputStream();
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    try {
+                                                        inputStream=socket.getInputStream();
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    bt_conn = true;
+                                                    new Thread(new Runnable() {
+                                                        public void run() {
+                                                            if (bt_conn == true){
+                                                                while (true){
+                                                                    //read data from serial then convert it from decimal to char
+                                                                    try {
+                                                                        serial_msg = Integer.parseInt(new String(String.valueOf(inputStream.read())));
+                                                                    } catch (IOException e) {
+                                                                        e.printStackTrace();
+                                                                    }
+                                                                    //send converted data to another string in another activity
+                                                                    ActivityControlCenter.read_msg = String.valueOf((char)serial_msg);
+                                                                    //SystemClock.sleep(500);
+                                                                }
+                                                            }
+                                                        }
+                                                    }).start();
+                                                }
+                                                break;
+                                            }
+                                        }
                                     }
-                                    //send converted data to another string in another activity
-                                    ActivityControlCenter.read_msg = String.valueOf((char)serial_msg);
-                                    //SystemClock.sleep(500);
                                 }
+                                conn_handler.postDelayed(this, 1000);
                             }
-                        }).start();
-
+                        });
                     }
                 }, 1500);
 
@@ -118,6 +128,7 @@ public class SplashScreen extends AppCompatActivity {
                         appopn();
                     }
                 });
+
             }
 
         });
@@ -333,5 +344,6 @@ public class SplashScreen extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
         appcls();
+        System.exit(1);
     }
 }

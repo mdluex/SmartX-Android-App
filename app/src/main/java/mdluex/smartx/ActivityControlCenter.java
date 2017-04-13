@@ -191,10 +191,13 @@ public class ActivityControlCenter extends AppCompatActivity {
             }
         });*/
 
-        final Handler on_off_handler = new Handler(Looper.getMainLooper());
-        on_off_handler.post(new Runnable() {
+        final Handler read_handler = new Handler(Looper.getMainLooper());
+        read_handler.post(new Runnable() {
             public void run() {
                 chk_on_off();
+                smk_stt_th();
+                mo_stt_th();
+                deg_text();
                 if (room1_str == 0){
                     room1_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room1_st.setText("OFF");
@@ -260,11 +263,11 @@ public class ActivityControlCenter extends AppCompatActivity {
                     room6_st.setText("ON");
                     room6_img.setImageResource(R.drawable.lamp_on);
                 }
-                on_off_handler.postDelayed(this, 0);
+                read_handler.postDelayed(this, 0);
             }
         });
 
-        final Handler deg_handler = new Handler(Looper.getMainLooper());
+        /*final Handler deg_handler = new Handler(Looper.getMainLooper());
         deg_handler.post(new Runnable() {
             public void run() {
                 deg_text();
@@ -279,7 +282,7 @@ public class ActivityControlCenter extends AppCompatActivity {
                 mo_stt_th();
                 smk_mo_handler.postDelayed(this, 0);
             }
-        });
+        });*/
 
     }
     public void chk_on_off(){
@@ -392,6 +395,7 @@ public class ActivityControlCenter extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
         SplashScreen.appcls();
+        System.exit(1);
     }
 }
 
