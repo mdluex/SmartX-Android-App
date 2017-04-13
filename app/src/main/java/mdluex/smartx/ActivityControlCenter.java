@@ -326,6 +326,16 @@ public class ActivityControlCenter extends AppCompatActivity {
         if (cc_degText != null & cc_degText.length() > 0 & cc_degText.matches("^[0-9]*$")){
             deg_cc.setText(cc_degText + "0" + "°");
         }
+        final RelativeLayout heat_stt_sec = (RelativeLayout) this.findViewById(R.id.heat_sec);
+        if (cc_degText.matches("2")){
+            heat_stt_sec.setBackgroundResource(R.drawable.btn_grid_cold);
+        }
+        else if (cc_degText.matches("9")){
+            heat_stt_sec.setBackgroundResource(R.drawable.btn_grid_erg);
+        }
+        else {
+            heat_stt_sec.setBackgroundResource(R.drawable.btn_grid_cold);
+        }
     }
     public void smk_stt_th(){
         if (read_msg.matches("s")){
