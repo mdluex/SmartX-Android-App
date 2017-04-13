@@ -19,12 +19,12 @@ import java.io.IOException;
 
 public class ActivityControlCenter extends AppCompatActivity {
 
-    private int room1_str = 0;
-    private int room2_str = 0;
-    private int room3_str = 0;
-    private int room4_str = 0;
-    private int room5_str = 0;
-    private int room6_str = 0;
+    public int room1_str = 0;
+    public int room2_str = 0;
+    public int room3_str = 0;
+    public int room4_str = 0;
+    public int room5_str = 0;
+    public int room6_str = 0;
     public static String read_msg;
     public static String cc_degText;
     public boolean smk_stt;
@@ -44,16 +44,16 @@ public class ActivityControlCenter extends AppCompatActivity {
                 if (room1_str == 0){
                     room1_str = 1;
                     SplashScreen.room1ON();
-                    room1_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    /*room1_btn.setBackgroundResource(R.drawable.btn_grid_nor);
                     room1_st.setText("ON");
-                    room1_img.setImageResource(R.drawable.lamp_on);
+                    room1_img.setImageResource(R.drawable.lamp_on);*/
                 }
                 else {
                     room1_str = 0;
                     SplashScreen.room1OFF();
-                    room1_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    /*room1_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room1_st.setText("OFF");
-                    room1_img.setImageResource(R.drawable.lamp_off);
+                    room1_img.setImageResource(R.drawable.lamp_off);*/
                 }
             }
         });
@@ -67,16 +67,16 @@ public class ActivityControlCenter extends AppCompatActivity {
                 if (room2_str == 0){
                     room2_str = 1;
                     SplashScreen.room2ON();
-                    room2_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    /*room2_btn.setBackgroundResource(R.drawable.btn_grid_nor);
                     room2_st.setText("ON");
-                    room2_img.setImageResource(R.drawable.lamp_on);
+                    room2_img.setImageResource(R.drawable.lamp_on);*/
                 }
                 else {
                     room2_str = 0;
                     SplashScreen.room2OFF();
-                    room2_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    /*room2_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room2_st.setText("OFF");
-                    room2_img.setImageResource(R.drawable.lamp_off);
+                    room2_img.setImageResource(R.drawable.lamp_off);*/
                 }
             }
         });
@@ -90,16 +90,16 @@ public class ActivityControlCenter extends AppCompatActivity {
                 if (room3_str == 0){
                     room3_str = 1;
                     SplashScreen.room3ON();
-                    room3_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    /*room3_btn.setBackgroundResource(R.drawable.btn_grid_nor);
                     room3_st.setText("ON");
-                    room3_img.setImageResource(R.drawable.lamp_on);
+                    room3_img.setImageResource(R.drawable.lamp_on);*/
                 }
                 else {
                     room3_str = 0;
                     SplashScreen.room3OFF();
-                    room3_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    /*room3_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room3_st.setText("OFF");
-                    room3_img.setImageResource(R.drawable.lamp_off);
+                    room3_img.setImageResource(R.drawable.lamp_off);*/
                 }
             }
         });
@@ -113,16 +113,16 @@ public class ActivityControlCenter extends AppCompatActivity {
                 if (room4_str == 0){
                     room4_str = 1;
                     SplashScreen.room4ON();
-                    room4_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    /*room4_btn.setBackgroundResource(R.drawable.btn_grid_nor);
                     room4_st.setText("ON");
-                    room4_img.setImageResource(R.drawable.lamp_on);
+                    room4_img.setImageResource(R.drawable.lamp_on);*/
                 }
                 else {
                     room4_str = 0;
                     SplashScreen.room4OFF();
-                    room4_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    /*room4_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room4_st.setText("OFF");
-                    room4_img.setImageResource(R.drawable.lamp_off);
+                    room4_img.setImageResource(R.drawable.lamp_off);*/
                 }
             }
         });
@@ -136,16 +136,16 @@ public class ActivityControlCenter extends AppCompatActivity {
                 if (room5_str == 0){
                     room5_str = 1;
                     SplashScreen.room5ON();
-                    room5_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    /*room5_btn.setBackgroundResource(R.drawable.btn_grid_nor);
                     room5_st.setText("ON");
-                    room5_img.setImageResource(R.drawable.lamp_on);
+                    room5_img.setImageResource(R.drawable.lamp_on);*/
                 }
                 else {
                     room5_str = 0;
                     SplashScreen.room5OFF();
-                    room5_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    /*room5_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room5_st.setText("OFF");
-                    room5_img.setImageResource(R.drawable.lamp_off);
+                    room5_img.setImageResource(R.drawable.lamp_off);*/
                 }
             }
         });
@@ -159,85 +159,19 @@ public class ActivityControlCenter extends AppCompatActivity {
                 if (room6_str == 0){
                     room6_str = 1;
                     SplashScreen.room6ON();
-                    room6_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    /*room6_btn.setBackgroundResource(R.drawable.btn_grid_nor);
                     room6_st.setText("ON");
-                    room6_img.setImageResource(R.drawable.lamp_on);
+                    room6_img.setImageResource(R.drawable.lamp_on);*/
                 }
                 else {
                     room6_str = 0;
                     SplashScreen.room6OFF();
-                    room6_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    /*room6_btn.setBackgroundResource(R.drawable.btn_grid_off);
                     room6_st.setText("OFF");
-                    room6_img.setImageResource(R.drawable.lamp_off);
+                    room6_img.setImageResource(R.drawable.lamp_off);*/
                 }
             }
         });
-
-        if (room1_str == 0){
-            room1_btn.setBackgroundResource(R.drawable.btn_grid_off);
-            room1_st.setText("OFF");
-            room1_img.setImageResource(R.drawable.lamp_off);
-        }
-        else {
-            room1_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-            room1_st.setText("ON");
-            room1_img.setImageResource(R.drawable.lamp_on);
-        }
-
-        if (room2_str == 0){
-            room2_btn.setBackgroundResource(R.drawable.btn_grid_off);
-            room2_st.setText("OFF");
-            room2_img.setImageResource(R.drawable.lamp_off);
-        }
-        else {
-            room2_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-            room2_st.setText("ON");
-            room2_img.setImageResource(R.drawable.lamp_on);
-        }
-
-        if (room3_str == 0){
-            room3_btn.setBackgroundResource(R.drawable.btn_grid_off);
-            room3_st.setText("OFF");
-            room3_img.setImageResource(R.drawable.lamp_off);
-        }
-        else {
-            room3_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-            room3_st.setText("ON");
-            room3_img.setImageResource(R.drawable.lamp_on);
-        }
-
-        if (room4_str == 0){
-            room4_btn.setBackgroundResource(R.drawable.btn_grid_off);
-            room4_st.setText("OFF");
-            room4_img.setImageResource(R.drawable.lamp_off);
-        }
-        else {
-            room4_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-            room4_st.setText("ON");
-            room4_img.setImageResource(R.drawable.lamp_on);
-        }
-
-        if (room5_str == 0){
-            room5_btn.setBackgroundResource(R.drawable.btn_grid_off);
-            room5_st.setText("OFF");
-            room5_img.setImageResource(R.drawable.lamp_off);
-        }
-        else {
-            room5_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-            room5_st.setText("ON");
-            room5_img.setImageResource(R.drawable.lamp_on);
-        }
-
-        if (room6_str == 0){
-            room6_btn.setBackgroundResource(R.drawable.btn_grid_off);
-            room6_st.setText("OFF");
-            room6_img.setImageResource(R.drawable.lamp_off);
-        }
-        else {
-            room6_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-            room6_st.setText("ON");
-            room6_img.setImageResource(R.drawable.lamp_on);
-        }
 
         /**getWindow().getDecorView().post(new Runnable() {
             @Override
@@ -257,6 +191,79 @@ public class ActivityControlCenter extends AppCompatActivity {
             }
         });*/
 
+        final Handler on_off_handler = new Handler(Looper.getMainLooper());
+        on_off_handler.post(new Runnable() {
+            public void run() {
+                chk_on_off();
+                if (room1_str == 0){
+                    room1_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    room1_st.setText("OFF");
+                    room1_img.setImageResource(R.drawable.lamp_off);
+                }
+                else {
+                    room1_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    room1_st.setText("ON");
+                    room1_img.setImageResource(R.drawable.lamp_on);
+                }
+
+                if (room2_str == 0){
+                    room2_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    room2_st.setText("OFF");
+                    room2_img.setImageResource(R.drawable.lamp_off);
+                }
+                else {
+                    room2_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    room2_st.setText("ON");
+                    room2_img.setImageResource(R.drawable.lamp_on);
+                }
+
+                if (room3_str == 0){
+                    room3_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    room3_st.setText("OFF");
+                    room3_img.setImageResource(R.drawable.lamp_off);
+                }
+                else {
+                    room3_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    room3_st.setText("ON");
+                    room3_img.setImageResource(R.drawable.lamp_on);
+                }
+
+                if (room4_str == 0){
+                    room4_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    room4_st.setText("OFF");
+                    room4_img.setImageResource(R.drawable.lamp_off);
+                }
+                else {
+                    room4_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    room4_st.setText("ON");
+                    room4_img.setImageResource(R.drawable.lamp_on);
+                }
+
+                if (room5_str == 0){
+                    room5_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    room5_st.setText("OFF");
+                    room5_img.setImageResource(R.drawable.lamp_off);
+                }
+                else {
+                    room5_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    room5_st.setText("ON");
+                    room5_img.setImageResource(R.drawable.lamp_on);
+                }
+
+                if (room6_str == 0){
+                    room6_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                    room6_st.setText("OFF");
+                    room6_img.setImageResource(R.drawable.lamp_off);
+                }
+                else {
+                    room6_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                    room6_st.setText("ON");
+                    room6_img.setImageResource(R.drawable.lamp_on);
+                }
+                on_off_handler.postDelayed(this, 0);
+            }
+        });
+
         final Handler deg_handler = new Handler(Looper.getMainLooper());
         deg_handler.post(new Runnable() {
             public void run() {
@@ -274,6 +281,44 @@ public class ActivityControlCenter extends AppCompatActivity {
             }
         });
 
+    }
+    public void chk_on_off(){
+        if (read_msg.matches("A")){
+            room1_str = 1;
+        }
+        else if (read_msg.matches("a")){
+            room1_str = 0;
+        }
+        if (read_msg.matches("K")){
+            room2_str = 1;
+        }
+        else if (read_msg.matches("k")){
+            room2_str = 0;
+        }
+        if (read_msg.matches("D")){
+            room3_str = 1;
+        }
+        else if (read_msg.matches("d")){
+            room3_str = 0;
+        }
+        if (read_msg.matches("F")){
+            room4_str = 1;
+        }
+        else if (read_msg.matches("f")){
+            room4_str = 0;
+        }
+        if (read_msg.matches("G")){
+            room5_str = 1;
+        }
+        else if (read_msg.matches("g")){
+            room5_str = 0;
+        }
+        if (read_msg.matches("H")){
+            room6_str = 1;
+        }
+        else if (read_msg.matches("h")){
+            room6_str = 0;
+        }
     }
     public void deg_text(){
         cc_degText = read_msg;
@@ -331,6 +376,7 @@ public class ActivityControlCenter extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         SplashScreen.appcls();
+        System.exit(1);
     }
     @Override
     public void onDestroy() {

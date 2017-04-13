@@ -327,6 +327,7 @@ public class SplashScreen extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         appcls();
+        System.exit(1);
     }
     @Override
     public void onDestroy() {
