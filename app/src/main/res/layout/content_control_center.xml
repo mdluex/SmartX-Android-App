@@ -54,7 +54,7 @@
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/lamp_on" />
+                        app:srcCompat="@drawable/lamp_off" />
 
                     <TextView
                         android:id="@+id/room1_st"
@@ -219,7 +219,7 @@
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/lamp_on" />
+                        app:srcCompat="@drawable/lamp_off" />
 
                     <TextView
                         android:id="@+id/room3_st"
@@ -266,7 +266,7 @@
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/lamp_on" />
+                        app:srcCompat="@drawable/lamp_off" />
 
                     <TextView
                         android:id="@+id/room4_st"
@@ -445,7 +445,7 @@
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/lamp_on" />
+                        app:srcCompat="@drawable/lamp_off" />
 
                     <TextView
                         android:id="@+id/room5_st"
@@ -492,7 +492,7 @@
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/lamp_on" />
+                        app:srcCompat="@drawable/lamp_off" />
 
                     <TextView
                         android:id="@+id/room6_st"
