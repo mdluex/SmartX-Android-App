@@ -92,8 +92,8 @@ public class SplashScreen extends AppCompatActivity {
                                                     bt_conn = true;
                                                     new Thread(new Runnable() {
                                                         public void run() {
-                                                            if (bt_conn == true){
-                                                                while (true){
+                                                            while (true){
+                                                                if (bt_conn == true) {
                                                                     //read data from serial then convert it from decimal to char
                                                                     try {
                                                                         serial_msg = Integer.parseInt(new String(String.valueOf(inputStream.read())));
@@ -101,7 +101,7 @@ public class SplashScreen extends AppCompatActivity {
                                                                         e.printStackTrace();
                                                                     }
                                                                     //send converted data to another string in another activity
-                                                                    ActivityControlCenter.read_msg = String.valueOf((char)serial_msg);
+                                                                    ActivityControlCenter.read_msg = String.valueOf((char) serial_msg);
                                                                     //SystemClock.sleep(500);
                                                                 }
                                                             }

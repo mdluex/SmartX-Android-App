@@ -173,97 +173,85 @@ public class ActivityControlCenter extends AppCompatActivity {
             }
         });
 
-        /**getWindow().getDecorView().post(new Runnable() {
+        getWindow().getDecorView().post(new Runnable() {
             @Override
             public void run() {
-                new Thread(new Runnable() {
+                SystemClock.sleep(1000);
+                final Handler read_handler = new Handler(Looper.getMainLooper());
+                read_handler.post(new Runnable() {
                     public void run() {
-                            runOnUiThread(new Runnable() {
-                                public void run() {
-                                    while (true) {
-                                        deg_text();
-                                        SystemClock.sleep(1000);
-                                    }
-                                }
-                            });
+                        chk_on_off();
+                        smk_stt_th();
+                        mo_stt_th();
+                        deg_text();
+                        if (room1_str == 0){
+                            room1_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                            room1_st.setText("OFF");
+                            room1_img.setImageResource(R.drawable.lamp_off);
+                        }
+                        else {
+                            room1_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                            room1_st.setText("ON");
+                            room1_img.setImageResource(R.drawable.lamp_on);
+                        }
+
+                        if (room2_str == 0){
+                            room2_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                            room2_st.setText("OFF");
+                            room2_img.setImageResource(R.drawable.lamp_off);
+                        }
+                        else {
+                            room2_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                            room2_st.setText("ON");
+                            room2_img.setImageResource(R.drawable.lamp_on);
+                        }
+
+                        if (room3_str == 0){
+                            room3_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                            room3_st.setText("OFF");
+                            room3_img.setImageResource(R.drawable.lamp_off);
+                        }
+                        else {
+                            room3_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                            room3_st.setText("ON");
+                            room3_img.setImageResource(R.drawable.lamp_on);
+                        }
+
+                        if (room4_str == 0){
+                            room4_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                            room4_st.setText("OFF");
+                            room4_img.setImageResource(R.drawable.lamp_off);
+                        }
+                        else {
+                            room4_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                            room4_st.setText("ON");
+                            room4_img.setImageResource(R.drawable.lamp_on);
+                        }
+
+                        if (room5_str == 0){
+                            room5_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                            room5_st.setText("OFF");
+                            room5_img.setImageResource(R.drawable.lamp_off);
+                        }
+                        else {
+                            room5_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                            room5_st.setText("ON");
+                            room5_img.setImageResource(R.drawable.lamp_on);
+                        }
+
+                        if (room6_str == 0){
+                            room6_btn.setBackgroundResource(R.drawable.btn_grid_off);
+                            room6_st.setText("OFF");
+                            room6_img.setImageResource(R.drawable.lamp_off);
+                        }
+                        else {
+                            room6_btn.setBackgroundResource(R.drawable.btn_grid_nor);
+                            room6_st.setText("ON");
+                            room6_img.setImageResource(R.drawable.lamp_on);
+                        }
+                        read_handler.postDelayed(this, 0);
                     }
-                }).start();
-            }
-        });*/
-
-        final Handler read_handler = new Handler(Looper.getMainLooper());
-        read_handler.post(new Runnable() {
-            public void run() {
-                chk_on_off();
-                smk_stt_th();
-                mo_stt_th();
-                deg_text();
-                if (room1_str == 0){
-                    room1_btn.setBackgroundResource(R.drawable.btn_grid_off);
-                    room1_st.setText("OFF");
-                    room1_img.setImageResource(R.drawable.lamp_off);
-                }
-                else {
-                    room1_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-                    room1_st.setText("ON");
-                    room1_img.setImageResource(R.drawable.lamp_on);
-                }
-
-                if (room2_str == 0){
-                    room2_btn.setBackgroundResource(R.drawable.btn_grid_off);
-                    room2_st.setText("OFF");
-                    room2_img.setImageResource(R.drawable.lamp_off);
-                }
-                else {
-                    room2_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-                    room2_st.setText("ON");
-                    room2_img.setImageResource(R.drawable.lamp_on);
-                }
-
-                if (room3_str == 0){
-                    room3_btn.setBackgroundResource(R.drawable.btn_grid_off);
-                    room3_st.setText("OFF");
-                    room3_img.setImageResource(R.drawable.lamp_off);
-                }
-                else {
-                    room3_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-                    room3_st.setText("ON");
-                    room3_img.setImageResource(R.drawable.lamp_on);
-                }
-
-                if (room4_str == 0){
-                    room4_btn.setBackgroundResource(R.drawable.btn_grid_off);
-                    room4_st.setText("OFF");
-                    room4_img.setImageResource(R.drawable.lamp_off);
-                }
-                else {
-                    room4_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-                    room4_st.setText("ON");
-                    room4_img.setImageResource(R.drawable.lamp_on);
-                }
-
-                if (room5_str == 0){
-                    room5_btn.setBackgroundResource(R.drawable.btn_grid_off);
-                    room5_st.setText("OFF");
-                    room5_img.setImageResource(R.drawable.lamp_off);
-                }
-                else {
-                    room5_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-                    room5_st.setText("ON");
-                    room5_img.setImageResource(R.drawable.lamp_on);
-                }
-
-                if (room6_str == 0){
-                    room6_btn.setBackgroundResource(R.drawable.btn_grid_off);
-                    room6_st.setText("OFF");
-                    room6_img.setImageResource(R.drawable.lamp_off);
-                }
-                else {
-                    room6_btn.setBackgroundResource(R.drawable.btn_grid_nor);
-                    room6_st.setText("ON");
-                    room6_img.setImageResource(R.drawable.lamp_on);
-                }
-                read_handler.postDelayed(this, 0);
+                });
             }
         });
 

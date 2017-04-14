@@ -37,38 +37,38 @@
                 android:layout_weight="0.06">
 
                 <RelativeLayout
+                    android:id="@+id/room1_btn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/btn_grid_nor"
-                    android:padding="15dp"
-                    android:id="@+id/room1_btn"
-                    android:layout_margin="5dp">
+                    android:background="@drawable/btn_grid_off"
+                    android:padding="15dp">
 
                     <ImageView
+                        android:id="@+id/room1_img"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        app:srcCompat="@drawable/lamp_on"
-                        android:id="@+id/room1_img"
-                        android:scaleType="fitCenter"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:adjustViewBounds="false"
-                        android:cropToPadding="false" />
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/lamp_on" />
 
                     <TextView
-                        android:text="ON"
+                        android:id="@+id/room1_st"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room1_st"
-                        android:textSize="18sp"
-                        android:textColor="#ffffff"
                         android:layout_alignBaseline="@+id/room1"
                         android:layout_alignBottom="@+id/room1"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:textStyle="normal|bold"
-                        android:fontFamily="sans-serif" />
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="sans-serif"
+                        android:text="OFF"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="normal|bold" />
 
                     <TextView
                         android:id="@+id/room1"
@@ -135,61 +135,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.06">
+
                 <RelativeLayout
+                    android:id="@+id/heat_sec"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/btn_grid_cold"
-                    android:padding="20dp"
-                    android:id="@+id/heat_sec"
-                    android:layout_margin="5dp">
+                    android:layout_margin="5dp"
+                    android:background="@drawable/btn_grid_off"
+                    android:padding="20dp">
 
                     <ImageView
+                        android:id="@+id/cc_img"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        app:srcCompat="@drawable/heat_temp"
-                        android:id="@+id/cc_img"
-                        android:scaleType="fitCenter"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/heat_temp" />
 
                     <TextView
-                        android:text="10°"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/cc_temp_st"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_alignBottom="@+id/cc_room"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:textStyle="normal|bold"
+                        android:layout_alignParentRight="true"
+                        android:text="0°"
                         android:textColor="#ffffff"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="normal|bold" />
 
                     <TextView
-                        android:text="Control Center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/cc_room"
-                        android:textAlignment="viewStart"
-                        android:textSize="12sp"
-                        android:textColor="#ffffff"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignLeft="@+id/temp"
-                        android:layout_alignStart="@+id/temp" />
-
-                    <TextView
-                        android:text="Temperature: "
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/temp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignStart="@+id/temp"
+                        android:text="Control Center"
+                        android:textAlignment="viewStart"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp" />
+
+                    <TextView
                         android:id="@+id/temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Temperature: "
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         android:textColor="#ffffff"
                         android:textSize="24sp"
-                        android:textStyle="normal|bold"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true" />
+                        android:textStyle="normal|bold" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -201,38 +202,38 @@
                 android:layout_weight="0.06">
 
                 <RelativeLayout
+                    android:id="@+id/room3_btn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/btn_grid_nor"
-                    android:padding="15dp"
-                    android:id="@+id/room3_btn"
-                    android:layout_margin="5dp">
+                    android:background="@drawable/btn_grid_off"
+                    android:padding="15dp">
 
                     <ImageView
+                        android:id="@+id/room3_img"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        app:srcCompat="@drawable/lamp_on"
-                        android:id="@+id/room3_img"
-                        android:scaleType="fitCenter"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:adjustViewBounds="false"
-                        android:cropToPadding="false" />
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/lamp_on" />
 
                     <TextView
-                        android:text="ON"
+                        android:id="@+id/room3_st"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room3_st"
-                        android:textSize="18sp"
-                        android:textColor="#ffffff"
                         android:layout_alignBaseline="@+id/room3"
                         android:layout_alignBottom="@+id/room3"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:textStyle="normal|bold"
-                        android:fontFamily="sans-serif" />
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="sans-serif"
+                        android:text="OFF"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="normal|bold" />
 
                     <TextView
                         android:id="@+id/room3"
@@ -246,39 +247,40 @@
                         android:textColor="#ffffff"
                         android:textSize="18sp" />
                 </RelativeLayout>
+
                 <RelativeLayout
+                    android:id="@+id/room4_btn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/btn_grid_nor"
-                    android:padding="15dp"
-                    android:id="@+id/room4_btn"
-                    android:layout_margin="5dp">
+                    android:background="@drawable/btn_grid_off"
+                    android:padding="15dp">
 
                     <ImageView
+                        android:id="@+id/room4_img"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        app:srcCompat="@drawable/lamp_on"
-                        android:id="@+id/room4_img"
-                        android:scaleType="fitCenter"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:adjustViewBounds="false"
-                        android:cropToPadding="false" />
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/lamp_on" />
 
                     <TextView
-                        android:text="ON"
+                        android:id="@+id/room4_st"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room4_st"
-                        android:textSize="18sp"
-                        android:textColor="#ffffff"
                         android:layout_alignBaseline="@+id/room4"
                         android:layout_alignBottom="@+id/room4"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:textStyle="normal|bold"
-                        android:fontFamily="sans-serif" />
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="sans-serif"
+                        android:text="OFF"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="normal|bold" />
 
                     <TextView
                         android:id="@+id/room4"
@@ -358,25 +360,26 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true" />
                 </RelativeLayout>
+
                 <RelativeLayout
+                    android:id="@+id/ket_smoke_sec"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/btn_grid_erg"
-                    android:padding="15dp"
-                    android:id="@+id/ket_smoke_sec"
-                    android:layout_margin="5dp">
+                    android:background="@drawable/btn_grid_off"
+                    android:padding="15dp">
 
                     <ImageView
+                        android:id="@+id/smoke_img"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        app:srcCompat="@drawable/smoke"
-                        android:id="@+id/smoke_img"
-                        android:scaleType="fitCenter"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:adjustViewBounds="false"
-                        android:cropToPadding="false" />
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/smoke" />
 
                     <TextView
                         android:id="@+id/ket"
@@ -391,29 +394,29 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:text="Smoke: "
+                        android:id="@+id/ttl_smoke"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ttl_smoke"
-                        android:textStyle="normal|bold"
-                        android:textColor="#ffffff"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:text="Smoke: "
+                        android:textColor="#ffffff"
+                        android:textStyle="normal|bold" />
 
                     <TextView
-                        android:text="YES"
+                        android:id="@+id/ket_smoke_st"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ket_smoke_st"
-                        android:textSize="18sp"
-                        android:textColor="#ffffff"
-                        android:textStyle="normal|bold"
-                        android:fontFamily="sans-serif"
                         android:layout_alignBaseline="@+id/ttl_smoke"
                         android:layout_alignBottom="@+id/ttl_smoke"
+                        android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:layout_alignParentEnd="true" />
+                        android:fontFamily="sans-serif"
+                        android:text="NO"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="normal|bold" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -425,38 +428,38 @@
                 android:layout_weight="0.06">
 
                 <RelativeLayout
+                    android:id="@+id/room5_btn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/btn_grid_nor"
-                    android:padding="15dp"
-                    android:id="@+id/room5_btn"
-                    android:layout_margin="5dp">
+                    android:background="@drawable/btn_grid_off"
+                    android:padding="15dp">
 
                     <ImageView
+                        android:id="@+id/room5_img"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        app:srcCompat="@drawable/lamp_on"
-                        android:id="@+id/room5_img"
-                        android:scaleType="fitCenter"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:adjustViewBounds="false"
-                        android:cropToPadding="false" />
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/lamp_on" />
 
                     <TextView
-                        android:text="ON"
+                        android:id="@+id/room5_st"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room5_st"
-                        android:textSize="18sp"
-                        android:textColor="#ffffff"
                         android:layout_alignBaseline="@+id/room5"
                         android:layout_alignBottom="@+id/room5"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:textStyle="normal|bold"
-                        android:fontFamily="sans-serif" />
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="sans-serif"
+                        android:text="OFF"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="normal|bold" />
 
                     <TextView
                         android:id="@+id/room5"
@@ -470,39 +473,40 @@
                         android:textColor="#ffffff"
                         android:textSize="18sp" />
                 </RelativeLayout>
+
                 <RelativeLayout
+                    android:id="@+id/room6_btn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/btn_grid_nor"
-                    android:padding="15dp"
-                    android:id="@+id/room6_btn"
-                    android:layout_margin="5dp">
+                    android:background="@drawable/btn_grid_off"
+                    android:padding="15dp">
 
                     <ImageView
+                        android:id="@+id/room6_img"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        app:srcCompat="@drawable/lamp_on"
-                        android:id="@+id/room6_img"
-                        android:scaleType="fitCenter"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:adjustViewBounds="false"
-                        android:cropToPadding="false" />
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/lamp_on" />
 
                     <TextView
-                        android:text="ON"
+                        android:id="@+id/room6_st"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/room6_st"
-                        android:textSize="18sp"
-                        android:textColor="#ffffff"
                         android:layout_alignBaseline="@+id/room6"
                         android:layout_alignBottom="@+id/room6"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:textStyle="normal|bold"
-                        android:fontFamily="sans-serif" />
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="sans-serif"
+                        android:text="OFF"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="normal|bold" />
 
                     <TextView
                         android:id="@+id/room6"
