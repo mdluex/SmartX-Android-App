@@ -274,10 +274,10 @@ public class ActivityControlCenter extends AppCompatActivity {
 
     }
     public void chk_on_off(){
-        if (read_msg.matches("A")){
+        if (read_msg.matches("V")){
             room1_str = 1;
         }
-        else if (read_msg.matches("a")){
+        else if (read_msg.matches("v")){
             room1_str = 0;
         }
         if (read_msg.matches("K")){
