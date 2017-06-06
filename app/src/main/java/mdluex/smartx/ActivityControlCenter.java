@@ -314,18 +314,18 @@ public class ActivityControlCenter extends AppCompatActivity {
     public void deg_text(){
         cc_degText = read_msg;
         final TextView deg_cc = (TextView) this.findViewById(R.id.cc_temp_st);
-        if (cc_degText != null & cc_degText.length() > 0 & cc_degText.matches("^[0-9]*$")){
-            deg_cc.setText(cc_degText + "0" + "°");
-        }
         final RelativeLayout heat_stt_sec = (RelativeLayout) this.findViewById(R.id.heat_sec);
-        if (cc_degText.matches("2")){
+        if (cc_degText.matches("z")){
             heat_stt_sec.setBackgroundResource(R.drawable.btn_grid_cold);
+            deg_cc.setText("GOOD");
         }
-        else if (cc_degText.matches("9")){
+        else if (cc_degText.matches("Z")){
             heat_stt_sec.setBackgroundResource(R.drawable.btn_grid_erg);
+            deg_cc.setText("HOT");
         }
         else {
             heat_stt_sec.setBackgroundResource(R.drawable.btn_grid_cold);
+            deg_cc.setText("GOOD");
         }
     }
     public void smk_stt_th(){

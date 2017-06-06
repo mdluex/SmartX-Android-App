@@ -163,7 +163,7 @@
                         android:layout_alignBottom="@+id/cc_room"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:text="0°"
+                        android:text="GOOD"
                         android:textColor="#ffffff"
                         android:textSize="18sp"
                         android:textStyle="normal|bold" />

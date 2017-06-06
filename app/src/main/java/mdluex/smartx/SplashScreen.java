@@ -25,7 +25,7 @@ import java.util.UUID;
 
 public class SplashScreen extends AppCompatActivity {
 
-    public static String deviceAddress = "20:16:07:25:13:60";
+    public static String deviceAddress = "00:21:13:00:63:07";
     public static BluetoothDevice result = null;
     public static BluetoothAdapter bluetoothAdapter=BluetoothAdapter.getDefaultAdapter();
     public static BluetoothSocket socket;
